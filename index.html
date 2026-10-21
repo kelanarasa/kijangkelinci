@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kijang & Kelinci – Ice Breaking PJOK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<div id="bg" aria-hidden="true">
+  <div class="sun"></div>
+  <span class="cl">☁️</span><span class="cl">☁️</span><span class="cl">☁️</span><span class="cl">☁️</span>
+  <span class="fl" style="left:3%;top:18%">🦋</span>
+  <span class="fl" style="left:48%;top:3%;animation-delay:-1s">🌈</span>
+  <span class="fl" style="right:3%;top:48%;animation-delay:-2s">🎈</span>
+  <span class="fl" style="left:2%;bottom:14%;animation-delay:-.5s">🌼</span>
+  <span class="fl" style="right:6%;bottom:12%;animation-delay:-1.6s">🌻</span>
+  <div class="grass"></div>
+</div>
+
+  <section id="left">
+    <h1>🦌 Kijang &amp; Kelinci 🐰</h1>
+    <div class="card" id="pcard">
+      <div id="prompt"><span class="em">🎬</span>Siap bermain?</div>
+    </div>
+    <div class="card" id="scard">
+      <div class="lbl">Bintang kelas</div>
+      <div id="stars">☆☆☆☆☆☆☆☆☆☆</div>
+    </div>
+  </section>
+
+  <section id="center">
+    <div class="vid">
+      <video id="v" playsinline muted></video>
+      <canvas class="ov" id="ov"></canvas>
+      <div id="cam-off">Kamera belum aktif. Tekan “Mulai Main”.</div>
+      <div id="nocam" class="hide">📷 Tanpa kamera</div>
+    </div>
+    <div class="bar" id="time"><i></i></div>
+    <div class="row"><span id="rnd">Misi 0/10</span><span id="cnt">Lompatan: 0</span></div>
+  </section>
+
+  <section id="right">
+    <div class="card" id="stat">
+      <div class="lbl">Berhasil</div>
+      <div id="ok">Berhasil: 0</div>
+      <div class="lbl" style="margin-top:6px">Gerakan kelas</div>
+      <div class="bar" id="mv"><i></i></div>
+    </div>
+    <div class="sens">
+      <label for="sens">Kepekaan: <b id="sensv">Normal</b></label>
+      <input type="range" id="sens" min="0.6" max="1.8" step="0.1" value="1">
+    </div>
+    <button id="go">▶ Mulai Main</button>
+    <div class="icons">
+      <button class="g" id="fs" title="Layar penuh" aria-label="Layar penuh">⛶</button>
+      <button class="g" id="flip" title="Ganti kamera" aria-label="Ganti kamera">🔄</button>
+      <button class="g" id="snd" title="Suara pemandu" aria-label="Suara pemandu">🔊</button>
+      <button class="g" id="mus" title="Musik" aria-label="Musik">🎵</button>
+      <button class="g" id="tipb" title="Tips guru" aria-label="Tips guru">ℹ️</button>
+    </div>
+  </section>
+
+  <div id="mq" aria-label="Pesan semangat"><div class="mqt" aria-hidden="true"><span>SDIT TQ Al-Fajri Tahfizh School Sawangan</span><span>Bugar bersama Coach Doto</span><span>Didalam Tubuh Yang Sehat Tertanam Jiwa Yang Kuat</span><span>Jangan Malas Bergerak</span><span>Jaya Jaya Jaya dan Sehat Selalu</span><span>Bergerak Bersama, Sehat Bersama</span><span>SDIT TQ Al-Fajri Tahfizh School Sawangan</span><span>Bugar bersama Coach Doto</span><span>Didalam Tubuh Yang Sehat Tertanam Jiwa Yang Kuat</span><span>Jangan Malas Bergerak</span><span>Jaya Jaya Jaya dan Sehat Selalu</span><span>Bergerak Bersama, Sehat Bersama</span></div></div>
+  <div id="tips" class="hide">
+    <div class="card">
+      <b>Tips guru</b>
+      <ul>
+        <li>Taruh HP/tablet di tempat stabil, menghadap murid, jarak 2–3 meter. Bisa dihubungkan ke proyektor.</li>
+        <li>Murid berlari dan melompat <b>di tempat</b>, jarak sejangkauan lengan, sepatu terikat.</li>
+        <li>Saat hitung mundur, <b>semua murid diam</b>: game mengukur “noise” kamera dan ruangan.</li>
+        <li>Terlalu mudah/sulit berhasil? Geser <b>Kepekaan</b>.</li>
+        <li><b>Musik</b> menyala saat misi lari dan lompat, lalu <b>berhenti mendadak</b> saat misi patung. Tombol 🎵 untuk mematikan musik, 🔊 untuk suara pemandu. Naikkan volume perangkat/proyektor.</li>
+        <li>Bekerja <b>offline</b>. Video diproses di perangkat saja, tidak direkam dan tidak dikirim ke mana pun.</li>
+        <li>Deteksi adalah perkiraan gerakan kelas, bukan penilaian per murid. Tanpa kamera, game jadi pemandu waktu.</li>
+      </ul>
+      <button class="g" id="tipx">Tutup</button>
+    </div>
+  </div>
+
+  <div id="rot" role="alert">
+    <div class="em">📱</div>
+    <b>Putar HP ke mode landscape</b>
+    <span>Game ini dimainkan dengan layar mendatar (16:9) supaya seluruh badan murid terlihat.</span>
+    <button class="g" id="rotx">Tetap main portrait</button>
+  </div>
+</div>
+<script src="motion.js"></script>
+<script src="music.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
